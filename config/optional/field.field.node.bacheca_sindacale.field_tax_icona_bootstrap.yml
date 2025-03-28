@@ -1,0 +1,33 @@
+uuid: b869fe69-cfd2-4c73-8058-91a595196eac
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_icona_bootstrap
+    - node.type.bacheca_sindacale
+    - taxonomy.vocabulary.icone_bootstrap_italia
+  content:
+    - 'taxonomy_term:icone_bootstrap_italia:78c3aeb9-8c07-4068-bd02-bcf8ac92a140'
+id: node.bacheca_sindacale.field_tax_icona_bootstrap
+field_name: field_tax_icona_bootstrap
+entity_type: node
+bundle: bacheca_sindacale
+label: 'Icona BOOTSTRAP'
+description: "<strong>E' possibile selezionare l'icona(testuale) per questo tipo di contenuto. <a href=\"https://italia.github.io/bootstrap-italia/docs/utilities/icone/#lista-delle-icone-disponibili\">GUARDA QUI</a> l'elenco.<br />\r\nPer le CIRCOLARI è impostata di default l'icona \"it-file\". Le icone iniziano sempre con \"it-\".</strong>"
+required: false
+translatable: true
+default_value:
+  -
+    target_uuid: 78c3aeb9-8c07-4068-bd02-bcf8ac92a140
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      icone_bootstrap_italia: icone_bootstrap_italia
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,24 @@
+uuid: d41b55ac-11b9-4c4b-83b2-5b46bb48d4ba
+langcode: it
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 8KOGBOPZadpPEyIyZpHbZFDJUzoUE7zhYim-4yU6x2k
+id: content_bacheca_sindacale
+label: 'CONTENT: Bacheca Sindacale'
+type: 'canonical_entities:node'
+pattern: 'novita/bacheca-sindacale/[node:title]'
+selection_criteria:
+  7f8a75d1-d56b-46f1-8aa0-d0d33e9af2f3:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 7f8a75d1-d56b-46f1-8aa0-d0d33e9af2f3
+    context_mapping:
+      node: node
+    bundles:
+      bacheca_sindacale: bacheca_sindacale
+selection_logic: and
+weight: -5
+relationships: {  }

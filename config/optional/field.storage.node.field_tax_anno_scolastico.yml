@@ -1,0 +1,26 @@
+uuid: ebd9cda8-e76b-4b87-9e10-30bbf0e9411b
+langcode: it
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - taxonomy
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: Pc1VgYREA_IM4B6LVO12GLyhfqros4nxH5--hHu0jk4
+id: node.field_tax_anno_scolastico
+field_name: field_tax_anno_scolastico
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,29 @@
+uuid: 5a34a574-23c9-4b2f-9053-bff396713ced
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_pubblica_riservata
+    - node.type.bacheca_sindacale
+    - taxonomy.vocabulary.pubblica_riservata
+id: node.bacheca_sindacale.field_tax_pubblica_riservata
+field_name: field_tax_pubblica_riservata
+entity_type: node
+bundle: bacheca_sindacale
+label: 'Pubblica o Riservata'
+description: "<ul>\r\n<li>Pubblica (Il Comunicato sarà visibile a tutti)</li>\r\n<li>Riservata (Il Comunicato sarà visibile solo dagli utenti registrati sul sito)</li>\r\n<li>Riservata ATA (Il Comunicato sarà visibile solo al personale ATA)</li>\r\n<li>Riservata DOCENTI (Il Comunicato sarà visibile solo al personale DOCENTE)</li>\r\n</ul>"
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      pubblica_riservata: pubblica_riservata
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

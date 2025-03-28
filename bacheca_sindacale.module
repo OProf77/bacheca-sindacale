@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * Bacheca sindacale.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function bacheca_sindacale_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.bacheca_sindacale':
+      $output = '';
+      $output .= '<p>' . t('This module helps to provide bacheca sindacale content type. It provide list of Sigle Sindacali.') . '</p>';
+      $output .= '<p>' . t('Create Vocabulary SINDACATI with term too. When uninstall module, vocabulary with terms are deleted') . '</p>';
+      return $output;
+  }
+}

@@ -1,0 +1,23 @@
+uuid: c0bb3895-27e7-4eb0-8119-22a79189e400
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_in_evidenza
+    - node.type.bacheca_sindacale
+id: node.bacheca_sindacale.field_in_evidenza
+field_name: field_in_evidenza
+entity_type: node
+bundle: bacheca_sindacale
+label: 'IN EVIDENZA'
+description: '<strong>Selezionare per inserire il comunicato nella HOME PAGE</strong>'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: SI
+  off_label: 'NO'
+field_type: boolean

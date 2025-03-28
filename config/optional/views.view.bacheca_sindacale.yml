@@ -1,0 +1,2025 @@
+uuid: 8459039f-ff55-4bc2-9aeb-01961a0a8a51
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.storage.node.field_data
+    - field.storage.node.field_tax_icona_bootstrap
+    - node.type.bacheca_sindacale
+    - node.type.circolare
+    - taxonomy.vocabulary.anno_scolastico
+    - taxonomy.vocabulary.sindacati
+  module:
+    - bootstrap_italia_views_carousel
+    - datetime
+    - node
+    - none_title
+    - taxonomy
+    - ui_patterns_views
+    - user
+    - vefl
+id: bacheca_sindacale
+label: 'BACHECA SINDACALE'
+module: views
+description: 'Pagina con l''elenco di tutte le circolari'
+tag: ''
+base_table: node_field_data
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Master
+    display_plugin: default
+    position: 0
+    display_options:
+      title: Circolari
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            word_boundary: false
+            ellipsis: false
+            strip_tags: false
+            trim: false
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Cerca
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      cache:
+        type: tag
+        options: {  }
+      empty: {  }
+      sorts:
+        field_data_value:
+          id: field_data_value
+          table: node__field_data
+          field: field_data_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: datetime
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: second
+      arguments: {  }
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          value:
+            circolare: circolare
+          expose:
+            operator_limit_selection: false
+            operator_list: {  }
+      style:
+        type: default
+        options:
+          row_class: 'col-xs-12 col-sm-6 col-md-12 col-lg-4 mb-1'
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          view_mode: teaser
+      query:
+        type: views_query
+        options:
+          query_comment: ''
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_tags: {  }
+      relationships: {  }
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  block_1:
+    id: block_1
+    display_title: 'Blocco: Anni Scolastici'
+    display_plugin: block
+    position: 3
+    display_options:
+      enabled: true
+      title: 'Archivio Bacheca Sindacale'
+      pager:
+        type: none
+        options:
+          offset: 0
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Cerca
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      arguments:
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_tax_anno_scolastico
+          group_type: group
+          admin_label: ''
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: string
+          default_action: summary
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: true
+          title: 'Bacheca Sindacale {{ raw_arguments.name }}'
+          default_argument_type: fixed
+          default_argument_options:
+            argument: ''
+          default_argument_skip_url: false
+          summary_options:
+            base_path: 'novita/bacheca-sindacale/{{ raw_arguments.name }}'
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          glossary: false
+          limit: 0
+          case: none
+          path_case: none
+          transform_dash: false
+          break_phrase: false
+          add_table: false
+          require_value: false
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            bacheca_sindacale: bacheca_sindacale
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
+      defaults:
+        title: false
+        css_class: false
+        pager: false
+        exposed_form: false
+        link_display: false
+        link_url: false
+        style: false
+        row: false
+        relationships: false
+        arguments: false
+        filters: false
+        filter_groups: false
+        header: false
+      relationships:
+        field_tax_anno_scolastico:
+          id: field_tax_anno_scolastico
+          table: node__field_tax_anno_scolastico
+          field: field_tax_anno_scolastico
+          relationship: none
+          group_type: group
+          admin_label: 'field_tax_anno_scolastico: Termine della tassonomia'
+          plugin_id: standard
+          required: false
+      css_class: ''
+      display_description: ''
+      link_display: page_1
+      link_url: ''
+      header: {  }
+      display_extenders:
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
+      block_description: 'Archivio Bacheca Sindacale'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  block_2:
+    id: block_2
+    display_title: 'Blocco: VIEWS'
+    display_plugin: block
+    position: 4
+    display_options:
+      title: 'Bacheca Sindacale'
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            word_boundary: false
+            ellipsis: false
+            strip_tags: false
+            trim: false
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_tax_icona_bootstrap:
+          id: field_tax_icona_bootstrap
+          table: node__field_tax_icona_bootstrap
+          field: field_tax_icona_bootstrap
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_data:
+          id: field_data
+          table: node__field_data
+          field: field_data
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: bootstrap_italia_short_date
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 6
+      sorts:
+        field_data_value:
+          id: field_data_value
+          table: node__field_data
+          field: field_data_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: datetime
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: second
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            bacheca_sindacale: bacheca_sindacale
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: bootstrap_italia_views_carousel_style
+        options:
+          bi_carousel_settings:
+            carousel_col_type: it-carousel-landscape-abstract-three-cols
+            slide_spacing: slide_track_padding
+            carousel_image_type: ''
+      row:
+        type: ui_patterns
+        options:
+          default_field_elements: 0
+          inline:
+            title: 0
+            type: 0
+            field_tax_icona_bootstrap: 0
+            field_data: 0
+          separator: ''
+          hide_empty: 0
+          pattern: card2_teaser
+          pattern_mapping:
+            'views_row:title':
+              destination: card_title
+              weight: 0
+              plugin: views_row
+              source: title
+            'views_row:field_tax_icona_bootstrap':
+              destination: card_icon
+              weight: 1
+              plugin: views_row
+              source: field_tax_icona_bootstrap
+          pattern_settings:
+            card2_teaser:
+              card_shadow: 1
+              card_shadow_token: ''
+              content_padding: default
+              default_icon: ''
+              default_icon_token: ''
+              default_icon_color: primary
+          pattern_variant: icon
+      defaults:
+        title: false
+        css_class: false
+        pager: false
+        style: false
+        row: false
+        fields: false
+        sorts: false
+        filters: false
+        filter_groups: false
+        footer: false
+      css_class: row
+      display_description: 'Blocco da inserire in altre viste'
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "<div class=\"text-center py-4\"><a href=\"/novita/bacheca-sindacale\" class=\"btn btn-primary\" role=\"button\">Vedi Tutti I COMUNICATI</a></div>\r\n<hr>"
+            format: full_html
+          tokenize: false
+      display_extenders:
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_data'
+        - 'config:field.storage.node.field_tax_icona_bootstrap'
+  block_3:
+    id: block_3
+    display_title: 'Blocco: DASHBOARD'
+    display_plugin: block
+    position: 4
+    display_options:
+      title: 'Bacheca Sindacale'
+      fields:
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: Oggetto
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: false
+            ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_data:
+          id: field_data
+          table: node__field_data
+          field: field_data
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Del
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: bootstrap_italia_short_date
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        view_node:
+          id: view_node
+          table: node
+          field: view_node
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: entity_link
+          label: Link
+          exclude: false
+          alter:
+            alter_text: true
+            text: '<a type="button" class="btn btn-outline-primary" role="button" href="{{ view_node }}">Visualizza</a>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: mostra
+          output_url_as_text: true
+          absolute: false
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 6
+      sorts:
+        field_data_value:
+          id: field_data_value
+          table: node__field_data
+          field: field_data_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: datetime
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+          granularity: second
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            bacheca_sindacale: bacheca_sindacale
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_tax_anno_scolastico_target_id:
+          id: field_tax_anno_scolastico_target_id
+          table: node__field_tax_anno_scolastico
+          field: field_tax_anno_scolastico_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_tax_anno_scolastico_target_id_op
+            label: 'Anno Scolastico'
+            description: 'Filtra per anno'
+            use_operator: false
+            operator: field_tax_anno_scolastico_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_tax_anno_scolastico_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              doc_primaria: '0'
+              doc_secondaria: '0'
+              ata_amministrativo: '0'
+              ata_tecnico: '0'
+              ata_coll_scolastico: '0'
+              redatt_albo: '0'
+              redatt_docente: '0'
+              dirigente: '0'
+              direttore: '0'
+              redatt_segreteria: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: anno_scolastico
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: Oggetto
+            description: 'Filtra per Oggetto'
+            use_operator: false
+            operator: title_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              doc_primaria: '0'
+              doc_secondaria: '0'
+              ata_amministrativo: '0'
+              ata_tecnico: '0'
+              ata_coll_scolastico: '0'
+              redatt_albo: '0'
+              redatt_docente: '0'
+              dirigente: '0'
+              direttore: '0'
+              redatt_segreteria: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            title: title
+            field_breve_descrizione: field_breve_descrizione
+            type: type
+            field_tax_icona_bootstrap: field_tax_icona_bootstrap
+            field_data: field_data
+          default: '-1'
+          info:
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_breve_descrizione:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            type:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_tax_icona_bootstrap:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_data:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: true
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
+      row:
+        type: ui_patterns
+        options:
+          default_field_elements: 0
+          inline:
+            title: 0
+            field_breve_descrizione: 0
+            type: 0
+            field_tax_icona_bootstrap: 0
+            field_data: 0
+          separator: ''
+          hide_empty: 0
+          pattern: card2_teaser
+          pattern_mapping:
+            'views_row:title':
+              destination: card_title
+              weight: 0
+              plugin: views_row
+              source: title
+            'views_row:field_breve_descrizione':
+              destination: card_text
+              weight: 1
+              plugin: views_row
+              source: field_breve_descrizione
+            'views_row:field_tax_icona_bootstrap':
+              destination: card_icon
+              weight: 2
+              plugin: views_row
+              source: field_tax_icona_bootstrap
+          pattern_settings:
+            card2_teaser:
+              card_shadow: 1
+              card_shadow_token: ''
+              content_padding: default
+              default_icon: ''
+              default_icon_token: ''
+              default_icon_color: primary
+          pattern_variant: icon
+      defaults:
+        title: false
+        css_class: false
+        pager: false
+        style: false
+        row: false
+        fields: false
+        sorts: false
+        filters: false
+        filter_groups: false
+        footer: false
+      css_class: ''
+      display_description: 'Blocco per visualizzare tutte le circolari nella DASHBOARD'
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "<div class=\"text-center py-4\"><a href=\"/novita/bacheca-sindacale\" class=\"btn btn-primary\" role=\"button\">Vedi Tutti i COMUNICATI</a></div>\r\n<hr>"
+            format: full_html
+          tokenize: false
+      display_extenders:
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_data'
+  page_1:
+    id: page_1
+    display_title: Page
+    display_plugin: page
+    position: 1
+    display_options:
+      title: 'Bacheca Sindacale'
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 9
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      exposed_form:
+        type: vefl_basic
+        options:
+          submit_button: Cerca
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+          layout:
+            layout_id: ds_3col_equal_width
+            change: Cambia
+            widget_region:
+              field_tax_anno_scolastico_target_id: left
+              field_oggetto_value: middle
+              field_tax_sindacato_target_id: right
+              sort_by: left
+              sort_order: middle
+              items_per_page: right
+              offset: left
+              submit: left
+              reset: middle
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            bacheca_sindacale: bacheca_sindacale
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_tax_anno_scolastico_target_id:
+          id: field_tax_anno_scolastico_target_id
+          table: node__field_tax_anno_scolastico
+          field: field_tax_anno_scolastico_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_tax_anno_scolastico_target_id_op
+            label: 'Anno Scolastico'
+            description: 'Filtra per Anno Scolastico'
+            use_operator: false
+            operator: field_tax_anno_scolastico_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_tax_anno_scolastico_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_admin: '0'
+              user_admin: '0'
+              dirigente: '0'
+              doc_infanzia: '0'
+              doc_primaria: '0'
+              doc_secondaria: '0'
+              ata_amministrativo: '0'
+              ata_tecnico: '0'
+              ata_coll_scolastico: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: anno_scolastico
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        field_oggetto_value:
+          id: field_oggetto_value
+          table: node__field_oggetto
+          field: field_oggetto_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_oggetto_value_op
+            label: Oggetto
+            description: 'Filtra per OGGETTO'
+            use_operator: false
+            operator: field_oggetto_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_oggetto_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_admin: '0'
+              user_admin: '0'
+              dirigente: '0'
+              doc_infanzia: '0'
+              doc_primaria: '0'
+              doc_secondaria: '0'
+              ata_amministrativo: '0'
+              ata_tecnico: '0'
+              ata_coll_scolastico: '0'
+            placeholder: 'Basta anche una sola parola'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_tax_sindacato_target_id:
+          id: field_tax_sindacato_target_id
+          table: node__field_tax_sindacato
+          field: field_tax_sindacato_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_tax_sindacato_target_id_op
+            label: Sindacato
+            description: 'Filtra per sindacato'
+            use_operator: false
+            operator: field_tax_sindacato_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_tax_sindacato_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              doc_infanzia: '0'
+              doc_primaria: '0'
+              doc_secondaria: '0'
+              ata_amministrativo: '0'
+              ata_tecnico: '0'
+              ata_coll_scolastico: '0'
+              redatt_segreteria: '0'
+              redatt_albo: '0'
+              redatt_docente: '0'
+              dirigente: '0'
+              direttore: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: sindacati
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: default
+        options:
+          row_class: 'col-xs-12 col-sm-6 col-md-12 col-lg-4 mb-1'
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser
+      defaults:
+        title: false
+        css_class: false
+        pager: false
+        exposed_form: false
+        style: false
+        row: false
+        filters: false
+        filter_groups: false
+        header: false
+      css_class: row
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "Attraverso questa pagina è possibile visualizzare l'elenco di <strong>TUTTI i COMUNICATI della BACHECA SINDACALE:</strong><br/>\r\n<ul>\r\n   <li>E' possibile filtrare le circolari in base ai campi sottostanti. <strong>CLICCARE su CERCA</strong> dopo aver effettuato la scelta per vedere i risultati.</li>\r\n   <li>Cliccare su <strong>\"RIPRISTINA\"</strong> per resettare tutti i filtri.</li>\r\n</ul>\r\n<br>"
+            format: full_html
+          tokenize: false
+      display_extenders:
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
+      path: novita/bacheca-sindacale
+      menu:
+        type: none
+        title: ''
+        description: ''
+        weight: -47
+        expanded: false
+        menu_name: main
+        parent: 'menu_link_content:0a9ef07f-c218-4c2a-95a1-0c54041128eb'
+        context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  page_2:
+    id: page_2
+    display_title: Page%
+    display_plugin: page
+    position: 2
+    display_options:
+      enabled: true
+      title: 'Bacheca Sindacale %'
+      pager:
+        type: full
+        options:
+          offset: 0
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+      exposed_form:
+        type: vefl_basic
+        options:
+          submit_button: Cerca
+          reset_button: true
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+          layout:
+            layout_id: ds_3col_equal_width
+            change: Cambia
+            widget_region:
+              field_oggetto_value: middle
+              field_tax_sindacato_target_id: right
+              field_tax_anno_scolastico_target_id: left
+              sort_by: left
+              sort_order: middle
+              items_per_page: right
+              offset: right
+              submit: left
+              reset: middle
+      arguments:
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_tax_anno_scolastico
+          group_type: group
+          admin_label: ''
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: string
+          default_action: ignore
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: true
+          title: 'Bacheca Sindacale {{ raw_arguments.name }}'
+          default_argument_type: fixed
+          default_argument_options:
+            argument: ''
+          default_argument_skip_url: false
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          glossary: false
+          limit: 0
+          case: none
+          path_case: none
+          transform_dash: false
+          break_phrase: false
+          add_table: false
+          require_value: false
+      filters:
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          group: 1
+          expose:
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          operator: in
+          value:
+            bacheca_sindacale: bacheca_sindacale
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_oggetto_value:
+          id: field_oggetto_value
+          table: node__field_oggetto
+          field: field_oggetto_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: string
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_oggetto_value_op
+            label: Oggetto
+            description: 'Filtra per OGGETTO'
+            use_operator: false
+            operator: field_oggetto_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_oggetto_value
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              content_admin: '0'
+              user_admin: '0'
+              dirigente: '0'
+              doc_infanzia: '0'
+              doc_primaria: '0'
+              doc_secondaria: '0'
+              ata_amministrativo: '0'
+              ata_tecnico: '0'
+              ata_coll_scolastico: '0'
+            placeholder: 'Basta anche una sola parola'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_tax_sindacato_target_id:
+          id: field_tax_sindacato_target_id
+          table: node__field_tax_sindacato
+          field: field_tax_sindacato_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_tax_sindacato_target_id_op
+            label: Sindacato
+            description: 'Filtra per sindacato'
+            use_operator: false
+            operator: field_tax_sindacato_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_tax_sindacato_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              doc_infanzia: '0'
+              doc_primaria: '0'
+              doc_secondaria: '0'
+              ata_amministrativo: '0'
+              ata_tecnico: '0'
+              ata_coll_scolastico: '0'
+              redatt_segreteria: '0'
+              redatt_albo: '0'
+              redatt_docente: '0'
+              dirigente: '0'
+              direttore: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: sindacati
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+        field_tax_anno_scolastico_target_id:
+          id: field_tax_anno_scolastico_target_id
+          table: node__field_tax_anno_scolastico
+          field: field_tax_anno_scolastico_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: taxonomy_index_tid
+          operator: or
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_tax_anno_scolastico_target_id_op
+            label: 'Anno Scolastico'
+            description: 'Filtra per Anno Scolastico'
+            use_operator: false
+            operator: field_tax_anno_scolastico_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_tax_anno_scolastico_target_id
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              content_editor: '0'
+              administrator: '0'
+              doc_infanzia: '0'
+              doc_primaria: '0'
+              doc_secondaria: '0'
+              ata_amministrativo: '0'
+              ata_tecnico: '0'
+              ata_coll_scolastico: '0'
+              redatt_segreteria: '0'
+              redatt_albo: '0'
+              redatt_docente: '0'
+              dirigente: '0'
+              direttore: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          vid: anno_scolastico
+          type: select
+          hierarchy: true
+          limit: true
+          error_message: true
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      style:
+        type: default
+        options:
+          row_class: 'col-xs-12 col-sm-6 col-md-12 col-lg-4 mb-1'
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: teaser
+      defaults:
+        title: false
+        css_class: false
+        pager: false
+        exposed_form: false
+        style: false
+        row: false
+        relationships: false
+        arguments: false
+        filters: false
+        filter_groups: false
+        header: false
+      relationships:
+        field_tax_anno_scolastico:
+          id: field_tax_anno_scolastico
+          table: node__field_tax_anno_scolastico
+          field: field_tax_anno_scolastico
+          relationship: none
+          group_type: group
+          admin_label: 'field_tax_anno_scolastico: Termine della tassonomia'
+          plugin_id: standard
+          required: false
+      css_class: row
+      display_description: ''
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: text
+          empty: false
+          content:
+            value: "Attraverso questa pagina è possibile visualizzare l'elenco di <strong>TUTTI i COMUNICATI della BACHECA SINDACALE</strong><br/>\r\n<ul>\r\n   <li>E' possibile filtrare le circolari in base ai campi sottostanti. <strong>CLICCARE su CERCA</strong> dopo aver effettuato la scelta per vedere i risultati.</li>\r\n   <li>Cliccare su <strong>\"RIPRISTINA\"</strong> per resettare tutti i filtri.</li>\r\n</ul>\r\n<br>"
+            format: basic_html
+          tokenize: false
+      display_extenders:
+        metatag_display_extender:
+          metatags: {  }
+          tokenize: false
+      path: novita/bacheca-sindacale/%
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }

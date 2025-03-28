@@ -1,0 +1,29 @@
+uuid: ea35ca00-fff3-4627-bf8c-8ca71aa53f47
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tax_sindacato
+    - node.type.bacheca_sindacale
+    - taxonomy.vocabulary.sindacati
+id: node.bacheca_sindacale.field_tax_sindacato
+field_name: field_tax_sindacato
+entity_type: node
+bundle: bacheca_sindacale
+label: Sindacato
+description: '<strong>Selezionare uno o più sindacati inerenti il comunicato</strong>'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sindacati: sindacati
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

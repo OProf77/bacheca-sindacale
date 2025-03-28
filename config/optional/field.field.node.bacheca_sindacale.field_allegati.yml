@@ -1,0 +1,46 @@
+uuid: 36b361f9-757e-4d16-81cd-48b1b5026010
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_allegati
+    - node.type.bacheca_sindacale
+  module:
+    - file
+    - filefield_paths
+third_party_settings:
+  filefield_paths:
+    enabled: true
+    file_path:
+      value: 'allegati/[node:content-type]/[node:field_tax_anno_scolastico:entity:name]'
+      options:
+        slashes: false
+        pathauto: true
+        transliterate: true
+    file_name:
+      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
+      options:
+        slashes: false
+        pathauto: true
+        transliterate: true
+    redirect: false
+    retroactive_update: false
+    active_updating: false
+id: node.bacheca_sindacale.field_allegati
+field_name: field_allegati
+entity_type: node
+bundle: bacheca_sindacale
+label: Allegati
+description: '<strong>Selezionare uno o più allegati</strong>'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf zip doc docx xls xlsx rar'
+  max_filesize: ''
+  description_field: true
+field_type: file

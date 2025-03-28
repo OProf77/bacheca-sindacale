@@ -1,0 +1,128 @@
+<?php
+
+/**
+ * @file
+ * Installation file for Currency taxonomy.
+ */
+
+use \Drupal\taxonomy\Entity\Vocabulary;
+
+/**
+ * Implements hook_install().
+ */
+function bacheca_sindacale_install(): void {
+  // Create the vocabulary.
+  _bacheca_sindacale_create_vocabulary();
+  // Add terms to vocabulary.
+  _bacheca_sindacale_add_terms();
+}
+
+/**
+ * Create Vocabulary.
+ */
+function _bacheca_sindacale_create_vocabulary(): void {
+  $vid = "sindacati";
+  $name = "Sindacati";
+
+  $vocabularies = Vocabulary::loadMultiple();
+  //Controllo se il VOCABOLARIO esiste oppure no.
+  if (!isset($vocabularies[$vid])) {
+    $vocabulary = \Drupal::service('entity_type.manager')
+      ->getStorage('taxonomy_vocabulary')
+      ->create([
+        'vid' => $vid,
+        'description' => 'Lista dei sindacati della scuola',
+        'name' => $name,
+        'hierarchy' => 1,
+        'weight' => 1,
+      ]);
+    $vocabulary->save();
+  }
+  else {
+    \Drupal::messenger()->addMessage($name . ' vocabulary already exits');
+  }
+}
+
+/**
+ * Add term to vocabulary.
+ */
+function _bacheca_sindacale_add_terms(): void {
+  // Get Sigle sindacali list.
+  $sigla_sindacale_list = _bacheca_sindacale_get_sigla_sindacale();
+  if (!empty($sigla_sindacale_list)) {
+    foreach ($sigla_sindacale_list as $sigla_sindacale) {
+      $term = \Drupal::service('entity_type.manager')->getStorage('taxonomy_term')->create([
+        'name' => $sigla_sindacale['sigla'],
+        'vid' => 'sindacati',
+      ]);
+      $term->save();
+    }
+  }
+}
+
+/**
+ * Get sindacati data.
+ */
+function _bacheca_sindacale_get_sigla_sindacale(): array {
+  return [
+    [
+      'sigla' => 'ANIEF',
+    ],
+    [
+      'sigla' => 'CISL Scuola',
+    ],
+    [
+      'sigla' => 'COBAS',
+    ],
+    [
+      'sigla' => 'CUB Scuola',
+    ],
+    [
+      'sigla' => 'FLC-CGIL Scuola',
+    ],
+    [
+      'sigla' => 'GILDA - UNAMS',
+    ],
+    [
+      'sigla' => 'RSU',
+    ],
+    [
+      'sigla' => 'SNADIR',
+    ],
+    [
+      'sigla' => 'SNALS',
+    ],
+    [
+      'sigla' => 'SNADIR',
+    ],
+    [
+      'sigla' => 'UGL scuola',
+    ],
+    [
+      'sigla' => 'UIL Scuola',
+    ],
+    [
+      'sigla' => 'USB Scuola',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_uninstall().
+ *
+ * @throws \Drupal\Core\Entity\EntityStorageException
+ */
+function bacheca_sindacale_uninstall(): void {
+  $storage = \Drupal::service('entity_type.manager')->getStorage('field_config');
+  // Get the fields on the bundle.
+  $fields = $storage->loadByProperties(['entity_type' => 'taxonomy_term', 'bundle' => 'sindacati']);
+  // This deletes the data for the field as well as the field themselves. This
+  // function actually just marks the data and fields as deleted.
+  if (!empty($fields)) {
+    foreach ($fields as $field) {
+      $field->delete();
+    }
+  }
+  $vocabulary = Vocabulary::load('sindacati');
+  $vocabulary?->delete();
+}

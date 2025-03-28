@@ -1,0 +1,12 @@
+name: "Bacheca Sindacale"
+description: "Bacheca Sindacale è un modulo drupal che permette di creare un tipo di contenuto per la gestione delle comunicazioni Sindacali della scuola."
+package: "Ouitoulía"
+
+type: module
+core_version_requirement: ^10.3 || ^11
+dependencies:
+  - drupal:node
+  - drupal:views
+  - search_api:search_api
+  - search_api:search_api_db
+  - facets:facets

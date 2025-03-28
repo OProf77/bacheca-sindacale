@@ -1,0 +1,21 @@
+uuid: 1e4f9cbf-d8ec-4f7d-a27f-55ac84424a88
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_rimozione_evidenza
+    - node.type.bacheca_sindacale
+  module:
+    - datetime
+id: node.bacheca_sindacale.field_data_rimozione_evidenza
+field_name: field_data_rimozione_evidenza
+entity_type: node
+bundle: bacheca_sindacale
+label: 'Data Rimozione EVIDENZA'
+description: '<strong>Selezionare la data di RIMOZIONE EVIDENZA dalla Home Page</strong>'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
