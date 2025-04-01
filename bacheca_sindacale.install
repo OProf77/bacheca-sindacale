@@ -114,18 +114,11 @@ function _bacheca_sindacale_get_sigla_sindacale(): array {
  */
 function bacheca_sindacale_uninstall(): void {
 
-  // Elimino tutti i nodi di uno specifico content type.
-  $nids = \Drupal::entityQuery('node')
-    ->accessCheck(FALSE)
-    ->condition('type', 'bacheca_sindacale')
-    ->execute();
-  // Load and delete nodes.
-  if (!empty($nids)) {
-    $nodes = Node::loadMultiple($nids);
-    foreach ($nodes as $node) {
-      $node->delete();
-    }
-  }
+  // Delete all nodes of given content type.
+  $storage_handler = \Drupal::entityTypeManager()
+    ->getStorage('node');
+  $nodes = $storage_handler->loadByProperties(['type' => 'bacheca_sindacale']);
+  $storage_handler->delete($nodes);
 
   // Delete content type.
   $content_type = \Drupal::entityTypeManager()
@@ -146,4 +139,7 @@ function bacheca_sindacale_uninstall(): void {
   }
   $vocabulary = Vocabulary::load('sindacati');
   $vocabulary?->delete();
+
+  // Delete pathauto pattern.
+  \Drupal::configFactory()->getEditable('pathauto.pattern.content_bacheca_sindacale')->delete();
 }

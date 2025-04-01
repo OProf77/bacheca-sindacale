@@ -1,0 +1,33 @@
+uuid: 25919fc5-e3bf-4324-98b9-91bb0f760c41
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card_scuola_big_image
+    - field.field.node.bacheca_sindacale.body
+    - field.field.node.bacheca_sindacale.field_allegati
+    - field.field.node.bacheca_sindacale.field_anno_scolastico
+    - field.field.node.bacheca_sindacale.field_sindacato
+    - node.type.bacheca_sindacale
+  module:
+    - user
+_core:
+  default_config_hash: yBE5QL8CZXzukkzbCTyk4FF5JaHg2k_v9Whi1PriIHE
+id: node.bacheca_sindacale.card_scuola_big_image
+targetEntityType: node
+bundle: bacheca_sindacale
+mode: card_scuola_big_image
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  body: true
+  field_allegati: true
+  field_anno_scolastico: true
+  field_sindacato: true
+  langcode: true
+  search_api_excerpt: true
+  toc_js: true
