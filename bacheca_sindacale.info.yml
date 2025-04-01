@@ -7,6 +7,9 @@ core_version_requirement: ^10.3 || ^11
 dependencies:
   - drupal:node
   - drupal:views
+  - facets:facets
+  - pathauto:pathauto
   - search_api:search_api
   - search_api:search_api_db
-  - facets:facets
+  - toc_js:toc_js
+

@@ -1,4 +1,4 @@
-uuid: 36b361f9-757e-4d16-81cd-48b1b5026010
+uuid: 8c3646f6-8ec6-4e34-a49f-34e4a81bf410
 langcode: it
 status: true
 dependencies:
@@ -7,40 +7,21 @@ dependencies:
     - node.type.bacheca_sindacale
   module:
     - file
-    - filefield_paths
-third_party_settings:
-  filefield_paths:
-    enabled: true
-    file_path:
-      value: 'allegati/[node:content-type]/[node:field_tax_anno_scolastico:entity:name]'
-      options:
-        slashes: false
-        pathauto: true
-        transliterate: true
-    file_name:
-      value: '[file:ffp-name-only-original].[file:ffp-extension-original]'
-      options:
-        slashes: false
-        pathauto: true
-        transliterate: true
-    redirect: false
-    retroactive_update: false
-    active_updating: false
 id: node.bacheca_sindacale.field_allegati
 field_name: field_allegati
 entity_type: node
 bundle: bacheca_sindacale
 label: Allegati
-description: '<strong>Selezionare uno o più allegati</strong>'
+description: 'Usa questo campo per allegare documenti alla circolare.'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:file'
   handler_settings: {  }
-  file_directory: '[date:custom:Y]-[date:custom:m]'
-  file_extensions: 'txt pdf zip doc docx xls xlsx rar'
+  file_directory: circolare/allegati
+  file_extensions: 'txt rtf pdf odf odg odp ods odt fodt fods fodp fodg key numbers pages 7z csv json ogg tar gz tar.gz wav'
   max_filesize: ''
   description_field: true
 field_type: file

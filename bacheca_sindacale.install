@@ -113,6 +113,27 @@ function _bacheca_sindacale_get_sigla_sindacale(): array {
  * @throws \Drupal\Core\Entity\EntityStorageException
  */
 function bacheca_sindacale_uninstall(): void {
+
+  // Elimino tutti i nodi di uno specifico content type.
+  $nids = \Drupal::entityQuery('node')
+    ->accessCheck(FALSE)
+    ->condition('type', 'bacheca_sindacale')
+    ->execute();
+  // Load and delete nodes.
+  if (!empty($nids)) {
+    $nodes = Node::loadMultiple($nids);
+    foreach ($nodes as $node) {
+      $node->delete();
+    }
+  }
+
+  // Delete content type.
+  $content_type = \Drupal::entityTypeManager()
+    ->getStorage('node_type')
+    ->load('bacheca_sindacale');
+  $content_type->delete();
+
+  // Elimino il Vocabolario e i suoi Termini
   $storage = \Drupal::service('entity_type.manager')->getStorage('field_config');
   // Get the fields on the bundle.
   $fields = $storage->loadByProperties(['entity_type' => 'taxonomy_term', 'bundle' => 'sindacati']);

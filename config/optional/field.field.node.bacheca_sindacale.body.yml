@@ -1,0 +1,30 @@
+uuid: 239e491e-bba5-4abe-9dcd-a05c49e6a232
+langcode: it
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - filter.format.bootstrap_italia_2
+    - node.type.bacheca_sindacale
+  module:
+    - text
+id: node.bacheca_sindacale.body
+field_name: body
+entity_type: node
+bundle: bacheca_sindacale
+label: Descrizione
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: '<p>Si prega di prendere visione della comunicazione in allegato.</p><p>&nbsp;</p><p class="text-align-center">Il Dirigente Scolastico<br><em>prof.ssa&nbsp;xxx XXXXXX</em></p>'
+    summary: ''
+    format: bootstrap_italia_2
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - bootstrap_italia_2
+field_type: text_with_summary

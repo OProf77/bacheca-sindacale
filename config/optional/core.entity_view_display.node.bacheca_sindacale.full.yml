@@ -1,0 +1,57 @@
+uuid: c9d0c1ff-1159-4b33-9fd4-4098582c6654
+langcode: it
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.bacheca_sindacale.body
+    - field.field.node.bacheca_sindacale.field_allegati
+    - field.field.node.bacheca_sindacale.field_anno_scolastico
+    - field.field.node.bacheca_sindacale.field_sindacato
+    - node.type.bacheca_sindacale
+  module:
+    - file
+    - text
+    - user
+id: node.bacheca_sindacale.full
+targetEntityType: node
+bundle: bacheca_sindacale
+mode: full
+content:
+  body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_allegati:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_sindacato:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  toc_js:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  field_anno_scolastico: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,9 @@
+uuid: e20e6641-cf40-4cff-bde1-3219326127d2
+langcode: it
+status: true
+dependencies: {  }
+name: Sindacati
+vid: sindacati
+description: 'Lista dei sindacati della scuola'
+weight: 1
+new_revision: false

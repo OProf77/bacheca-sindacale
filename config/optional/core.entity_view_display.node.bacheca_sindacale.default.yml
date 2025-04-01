@@ -1,88 +1,29 @@
-uuid: bc7128cf-25b5-4941-bd44-a44c8c0c6626
+uuid: 1c128fa1-484f-41e3-a4a6-73fd16ab905d
 langcode: it
 status: true
 dependencies:
   config:
+    - field.field.node.bacheca_sindacale.body
     - field.field.node.bacheca_sindacale.field_allegati
-    - field.field.node.bacheca_sindacale.field_data
-    - field.field.node.bacheca_sindacale.field_data_rimozione_evidenza
-    - field.field.node.bacheca_sindacale.field_descrizione
-    - field.field.node.bacheca_sindacale.field_in_evidenza
-    - field.field.node.bacheca_sindacale.field_numero_protocollo
-    - field.field.node.bacheca_sindacale.field_tax_anno_scolastico
-    - field.field.node.bacheca_sindacale.field_tax_icona_bootstrap
-    - field.field.node.bacheca_sindacale.field_tax_pubblica_riservata
-    - field.field.node.bacheca_sindacale.field_tax_sindacato
+    - field.field.node.bacheca_sindacale.field_anno_scolastico
+    - field.field.node.bacheca_sindacale.field_sindacato
     - node.type.bacheca_sindacale
   module:
-    - datetime
-    - file
-    - text
     - user
 id: node.bacheca_sindacale.default
 targetEntityType: node
 bundle: bacheca_sindacale
 mode: default
 content:
-  field_allegati:
-    type: file_default
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_data:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  field_descrizione:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_numero_protocollo:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 5
-    region: content
-  field_tax_anno_scolastico:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  field_tax_sindacato:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 6
-    region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 0
+    weight: 100
     region: content
 hidden:
-  expire_date: true
-  field_data_rimozione_evidenza: true
-  field_in_evidenza: true
-  field_tax_icona_bootstrap: true
-  field_tax_pubblica_riservata: true
+  body: true
+  field_allegati: true
+  field_anno_scolastico: true
+  field_sindacato: true
   langcode: true
-  published_at: true
   search_api_excerpt: true

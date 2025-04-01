@@ -1,239 +1,60 @@
-uuid: 7252a42b-5511-4da2-b7ea-e5abbee26f61
+uuid: 2f121e21-6b77-4ab6-b6c0-caab8507addf
 langcode: it
 status: true
 dependencies:
   config:
-    - field.field.node.bacheca_sindacale.alternate_form
-    - field.field.node.bacheca_sindacale.alternate_form_multiselect
-    - field.field.node.bacheca_sindacale.alternate_form_text
-    - field.field.node.bacheca_sindacale.annotation_field
-    - field.field.node.bacheca_sindacale.annotation_field_required
-    - field.field.node.bacheca_sindacale.email_roles
-    - field.field.node.bacheca_sindacale.email_users
-    - field.field.node.bacheca_sindacale.enable_roles
-    - field.field.node.bacheca_sindacale.enable_roles_nosign
-    - field.field.node.bacheca_sindacale.enable_users
-    - field.field.node.bacheca_sindacale.expire_date
+    - field.field.node.bacheca_sindacale.body
     - field.field.node.bacheca_sindacale.field_allegati
-    - field.field.node.bacheca_sindacale.field_data
-    - field.field.node.bacheca_sindacale.field_data_rimozione_evidenza
-    - field.field.node.bacheca_sindacale.field_descrizione
-    - field.field.node.bacheca_sindacale.field_in_evidenza
-    - field.field.node.bacheca_sindacale.field_numero_protocollo
-    - field.field.node.bacheca_sindacale.field_tax_anno_scolastico
-    - field.field.node.bacheca_sindacale.field_tax_icona_bootstrap
-    - field.field.node.bacheca_sindacale.field_tax_pubblica_riservata
-    - field.field.node.bacheca_sindacale.field_tax_sindacato
+    - field.field.node.bacheca_sindacale.field_anno_scolastico
+    - field.field.node.bacheca_sindacale.field_sindacato
     - node.type.bacheca_sindacale
   module:
-    - datetime
-    - field_group
     - file
-    - filefield_sources
-    - imce
     - path
-    - publication_date
     - text
-third_party_settings:
-  field_group:
-    group_informazioni_generali:
-      children:
-        - title
-        - field_tax_anno_scolastico
-        - field_tax_sindacato
-        - field_tax_pubblica_riservata
-      label: 'INFORMAZIONI GENERALI'
-      region: content
-      parent_name: ''
-      weight: 0
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: true
-        description: ''
-        required_fields: true
-    group_informazioni_aggiuntive:
-      children:
-        - field_data
-        - field_numero_protocollo
-        - enable_roles_nosign
-        - email_roles
-      label: 'INFORMAZIONI AGGIUNTIVE (NON OBBLIGATORIO)'
-      region: content
-      parent_name: ''
-      weight: 1
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: true
-        description: ''
-        required_fields: true
-    group_visibilita_home_page:
-      children:
-        - field_in_evidenza
-        - field_data_rimozione_evidenza
-      label: 'VISIBILITA'' HOME PAGE'
-      region: content
-      parent_name: ''
-      weight: 3
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: true
-        description: ''
-        required_fields: true
-    group_descrizione_e_allegati:
-      children:
-        - field_descrizione
-        - field_allegati
-      label: 'DESCRIZIONE e ALLEGATI'
-      region: content
-      parent_name: ''
-      weight: 2
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: true
-        description: ''
-        required_fields: true
-    group_icona:
-      children:
-        - field_tax_icona_bootstrap
-      label: ICONA
-      region: content
-      parent_name: ''
-      weight: 4
-      format_type: details
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        open: false
-        description: ''
-        required_fields: true
 id: node.bacheca_sindacale.default
 targetEntityType: node
 bundle: bacheca_sindacale
 mode: default
 content:
+  body:
+    type: text_textarea_with_summary
+    weight: 3
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
   created:
     type: datetime_timestamp
     weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
-  email_roles:
-    type: boolean_checkbox
-    weight: 14
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    multiple: false
-  enable_roles_nosign:
-    type: options_buttons
-    weight: 13
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-    multiple: true
   field_allegati:
     type: file_generic
-    weight: 14
+    weight: 4
     region: content
     settings:
       progress_indicator: throbber
-    third_party_settings:
-      filefield_sources:
-        filefield_sources:
-          sources:
-            upload: true
-            remote: true
-            imce: false
-            clipboard: false
-            reference: false
-            attach: false
-          source_reference:
-            autocomplete: '0'
-            search_all_fields: '0'
-          source_imce:
-            imce_mode: 0
-          source_attach:
-            path: file_attach
-            absolute: 0
-            attach_mode: move
-      imce:
-        enabled: false
-  field_data:
-    type: datetime_default
-    weight: 11
-    region: content
-    settings: {  }
     third_party_settings: {  }
-  field_data_rimozione_evidenza:
-    type: datetime_default
-    weight: 14
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_descrizione:
-    type: text_textarea
-    weight: 13
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_in_evidenza:
-    type: boolean_checkbox
-    weight: 13
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_numero_protocollo:
-    type: string_textfield
-    weight: 12
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_tax_anno_scolastico:
+  field_anno_scolastico:
     type: options_select
-    weight: 12
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_tax_icona_bootstrap:
+  field_sindacato:
     type: entity_reference_autocomplete
-    weight: 15
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_tax_pubblica_riservata:
-    type: options_buttons
-    weight: 14
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_tax_sindacato:
-    type: options_buttons
-    weight: 13
-    region: content
-    settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -244,40 +65,34 @@ content:
     third_party_settings: {  }
   path:
     type: path
-    weight: 11
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 9
+    weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
-  published_at:
-    type: publication_date_timestamp
-    weight: 8
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 12
+    weight: 11
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 10
+    weight: 9
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 11
+    weight: 0
     region: content
     settings:
       size: 60
@@ -293,15 +108,4 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden:
-  alternate_form: true
-  alternate_form_multiselect: true
-  alternate_form_text: true
-  annotation_field: true
-  annotation_field_required: true
-  email_users: true
-  enable_roles: true
-  enable_users: true
-  expire_date: true
-  publish_on: true
-  unpublish_on: true
+hidden: {  }
