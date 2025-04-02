@@ -10,24 +10,45 @@ dependencies:
     - field.field.node.bacheca_sindacale.field_sindacato
     - node.type.bacheca_sindacale
   module:
+    - text
     - user
 _core:
-  default_config_hash: yBE5QL8CZXzukkzbCTyk4FF5JaHg2k_v9Whi1PriIHE
+  default_config_hash: Kt1-Toad_bvctNBt57_XlqPzYwTJVa4fS9_OOHszQOE
 id: node.bacheca_sindacale.card_scuola_big_image
 targetEntityType: node
 bundle: bacheca_sindacale
 mode: card_scuola_big_image
 content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_anno_scolastico:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_sindacato:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 3
     region: content
 hidden:
-  body: true
   field_allegati: true
-  field_anno_scolastico: true
-  field_sindacato: true
   langcode: true
   search_api_excerpt: true
   toc_js: true

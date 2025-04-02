@@ -16,7 +16,6 @@ function bacheca_sindacale_install(): void {
   // Add terms to vocabulary.
   _bacheca_sindacale_add_terms();
 }
-
 /**
  * Create Vocabulary.
  */
@@ -42,7 +41,6 @@ function _bacheca_sindacale_create_vocabulary(): void {
     \Drupal::messenger()->addMessage($name . ' vocabulary already exits');
   }
 }
-
 /**
  * Add term to vocabulary.
  */
@@ -59,7 +57,6 @@ function _bacheca_sindacale_add_terms(): void {
     }
   }
 }
-
 /**
  * Get sindacati data.
  */
@@ -91,9 +88,6 @@ function _bacheca_sindacale_get_sigla_sindacale(): array {
     ],
     [
       'sigla' => 'SNALS',
-    ],
-    [
-      'sigla' => 'SNADIR',
     ],
     [
       'sigla' => 'UGL scuola',
@@ -142,4 +136,7 @@ function bacheca_sindacale_uninstall(): void {
 
   // Delete pathauto pattern.
   \Drupal::configFactory()->getEditable('pathauto.pattern.content_bacheca_sindacale')->delete();
+
+  // Delete views
+  \Drupal::configFactory()->getEditable('views.view.secondo_livello_bacheca_sindacale')->delete();
 }

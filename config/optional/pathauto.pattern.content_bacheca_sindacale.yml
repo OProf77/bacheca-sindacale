@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: 8KOGBOPZadpPEyIyZpHbZFDJUzoUE7zhYim-4yU6x2k
 id: content_bacheca_sindacale
-label: 'Tipo di contenuto: Bacheca Sindacale'
+label: 'Tipo contenuto: Bacheca Sindacale'
 type: 'canonical_entities:node'
 pattern: 'novita/bacheca-sindacale/[node:title]'
 selection_criteria:

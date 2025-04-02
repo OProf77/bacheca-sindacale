@@ -73,15 +73,15 @@
         <div class="col-lg-3 pt-5 bg-white bg-white-left affix-parent d-none d-lg-flex">
           <aside class="aside-list affix-top mb-5">
             {% block asideA11yDescription %}
-              <h2 class="visually-hidden">Filtra le notizie</h2>
-              <p class="visually-hidden">Scegli se visualizzare qualsiasi notizia, oppure filtrare per tipologia.</p>
+              <h2 class="visually-hidden">Filtra le comunicazioni</h2>
+              <p class="visually-hidden">Scegli se visualizzare qualsiasi comunicazione, oppure filtrare per sindacato.</p>
             {% endblock %}
             {{ exposed }}
           </aside>
         </div>
         <div class="col-lg-7 pt-5 offset-lg-1">
           {% block contentA11yDescription %}
-            <h2 class="visually-hidden">Lista delle notizie</h2>
+            <h2 class="visually-hidden">Lista delle comunicazioni</h2>
           {% endblock %}
           {% if rows -%}
             {{ rows }}
