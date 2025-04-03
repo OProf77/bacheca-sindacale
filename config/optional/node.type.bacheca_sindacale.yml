@@ -47,11 +47,11 @@ third_party_settings:
     sticky_stop: ''
     sticky_stop_padding: '0'
 _core:
-  default_config_hash: lyNnIfjk45wighTeA7KVQ01s17_C44QmJ-P6f3bOVJs
+  default_config_hash: 0X-2sGV32SVWt4flreTdpXYXoqkiONDaFIRNODaDekk
 name: 'Bacheca Sindacale'
 type: bacheca_sindacale
 description: 'Tipo di contenuto da utilizzare per inserire documenti provenienti dalle varie sigle sindacali della scuola'
 help: null
-new_revision: true
+new_revision: false
 preview_mode: 1
 display_submitted: false

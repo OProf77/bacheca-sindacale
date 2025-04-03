@@ -12,6 +12,8 @@ dependencies:
     - file
     - path
     - text
+_core:
+  default_config_hash: zXl1uKWuhq73Bv--7WP-OpAGIDsIjbExjBlWOvBImuM
 id: node.bacheca_sindacale.default
 targetEntityType: node
 bundle: bacheca_sindacale
